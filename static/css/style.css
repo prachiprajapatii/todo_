@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(to right, #ffafbd, #ffc3a0); /* Soft gradient background */
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 20px;
+    animation: gradientShift 15s ease infinite;
+    background-size: 200% 200%;
+}
+
+h2 {
+    color: #333; /* Darker gray for headings */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em; /* Reduced from 2.5em */
+    font-weight: 600;
+}
+
+.container {
+    max-width: 900px; /* Reduced from 1200px for a more compact look */
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.form-label {
+    color: #555; /* Medium gray for labels */
+    font-weight: bold; /* Bold labels */
+}
+
+.form-control {
+    border: 2px solid #ff6f61;
+    border-radius: 10px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 0.95em; /* Consistent text size */
+}
+
+.form-control:focus {
+    border-color: #de6a8d;
+    box-shadow: 0 0 15px rgba(222, 106, 141, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn {
+    border-radius: 25px;
+    padding: 10px 20px; /* Adjusted padding */
+    transition: all 0.3s ease;
+    background: linear-gradient(45deg, #ff6f61, #de6a8d);
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-size: 0.9em; /* Slightly smaller button text */
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(45deg, #de6a8d, #ff6f61);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(222, 106, 141, 0.3);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-top: 30px;
+}
+
+.table th {
+    background: linear-gradient(45deg, #ff6f61, #de6a8d);
+    color: white;
+    padding: 12px; /* Reduced padding */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em; /* Smaller header text */
+}
+
+.table td {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 12px; /* Reduced padding */
+    transition: all 0.3s ease;
+    font-size: 0.95em; /* Consistent text size */
+}
+
+.table tr:hover td {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.01);
+}
+
+.todo-item {
+    padding: 15px; /* Reduced padding */
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 0.95em; /* Slightly smaller text */
+}
+
+.todo-item .srno {
+    color: inherit; /* Inherit color from parent, no additional color */
+}
+
+.todo-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.todo-item.completed {
+    text-decoration: line-through;
+    color: #b0bec5;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0.98);
+}
+
+.todo-item.completed:hover {
+    transform: scale(1);
+}
+
+/* Enhanced button group styling */
+.btn-group {
+    display: flex;
+    gap: 10px; /* Add space between buttons */
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: 5px; /* Add some space from content above */
+}
+
+.btn-group .btn {
+    min-width: 100px; /* Ensure consistent button width */
+    text-align: center;
+}
+
+/* Add loading animation for async operations */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+}
+
+/* Add subtle page transition */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
